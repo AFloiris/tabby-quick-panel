@@ -1,0 +1,37 @@
+import { ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
+import { ConfigService, HotkeysService } from 'tabby-core';
+import { QuickPanelCommandStoreService } from './commandStore.service';
+export declare class QuickPanelSidebarHostService {
+    private appRef;
+    private resolver;
+    private injector;
+    private config;
+    private hotkeys;
+    private store;
+    private document;
+    private started;
+    private hostElement?;
+    private componentRef?;
+    private styleElement?;
+    private pendingLayoutRetry;
+    private layoutRetryCount;
+    private layoutWarningIssued;
+    private subscriptions;
+    constructor(appRef: ApplicationRef, resolver: ComponentFactoryResolver, injector: Injector, config: ConfigService, hotkeys: HotkeysService, store: QuickPanelCommandStoreService, document: Document);
+    start(): void;
+    toggle(): Promise<void>;
+    hide(): Promise<void>;
+    focus(): Promise<void>;
+    setLiveWidth(width: number): void;
+    persistLayout(): Promise<void>;
+    private applyVisibilityFromConfig;
+    private showComponent;
+    private focusComponent;
+    private destroyComponent;
+    private applyLayout;
+    private placeHost;
+    private scheduleLayoutRetry;
+    private cancelLayoutRetry;
+    private attachStyles;
+    private clamp;
+}

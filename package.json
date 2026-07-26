@@ -1,0 +1,59 @@
+{
+  "name": "tabby-quick-panel",
+  "version": "0.0.1",
+  "description": "Dockable quick command sidebar for Tabby Terminal.",
+  "license": "MIT",
+  "author": "James Jones",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "webpack --mode production",
+    "test:config-store": "tsc src/api.ts src/services/quickPanelConfig.ts --module commonjs --target es2018 --outDir .tmp-config-test --skipLibCheck && node scripts/check-config-store.js",
+    "test:sidebar-dock-target": "tsc src/services/sidebarDockTarget.ts --module commonjs --target es2018 --outDir .tmp-sidebar-target-test --skipLibCheck && node scripts/check-sidebar-dock-target.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "tabby",
+    "tabby-plugin",
+    "terminal",
+    "quick-command",
+    "sidebar"
+  ],
+  "peerDependencies": {
+    "@angular/common": ">=15",
+    "@angular/core": ">=15",
+    "@angular/forms": ">=15",
+    "rxjs": ">=6",
+    "tabby-core": ">=1.0.0",
+    "tabby-settings": ">=1.0.0",
+    "tabby-terminal": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "^15.2.10",
+    "@angular/common": "^15.2.10",
+    "@angular/core": "^15.2.10",
+    "@angular/cdk": "^15.2.9",
+    "@angular/forms": "^15.2.10",
+    "@angular/localize": "^15.2.10",
+    "@angular/platform-browser": "^15.2.10",
+    "@angular/platform-browser-dynamic": "^15.2.10",
+    "@types/node": "18.19.75",
+    "@ngx-translate/core": "^14.0.0",
+    "@xterm/xterm": "^5.5.0",
+    "ngx-translate-messageformat-compiler": "^6.2.0",
+    "rimraf": "^5.0.10",
+    "rxjs": "^7.8.2",
+    "tabby-core": "1.0.231-nightly.0",
+    "tabby-settings": "1.0.231-nightly.0",
+    "tabby-terminal": "1.0.231-nightly.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "4.9.5",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
