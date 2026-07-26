@@ -13,6 +13,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "webpack --mode production",
+    "install:tabby": "npm run build && node scripts/install-tabby.js",
+    "install:tabby:restart": "npm run build && node scripts/install-tabby.js --restart",
     "test:config-store": "tsc src/api.ts src/services/quickPanelConfig.ts --module commonjs --target es2018 --outDir .tmp-config-test --skipLibCheck && node scripts/check-config-store.js",
     "test:sidebar-dock-target": "tsc src/services/sidebarDockTarget.ts --module commonjs --target es2018 --outDir .tmp-sidebar-target-test --skipLibCheck && node scripts/check-sidebar-dock-target.js",
     "typecheck": "tsc --noEmit"

@@ -20,7 +20,7 @@ Tabby Terminal 的固定式快捷命令侧边栏插件。
 ## 开发
 
 ```bash
-npm install
+npm ci
 npm run typecheck
 npm run build
 ```
@@ -29,14 +29,28 @@ npm run build
 
 ## 本地安装
 
+推荐使用仓库内置命令安装到本机 Tabby：
+
+```bash
+npm run install:tabby
+```
+
+这个命令会先构建插件，然后把当前仓库作为 `file:` 依赖写入 Tabby 插件目录的 `package.json`，再在 Tabby 插件目录执行 `npm install --legacy-peer-deps`。这样插件由 npm 依赖清单管理，后续安装其他 Tabby 插件时不会被当成多余目录清理掉。
+
+如果希望安装后自动重启 Tabby：
+
+```bash
+npm run install:tabby:restart
+```
+
+默认 Tabby 插件目录为 `%APPDATA%\tabby\plugins`。如需安装到其他位置，可设置 `TABBY_PLUGINS_DIR`。
+
 开发调试可使用 Tabby 的插件开发方式：
 
 ```bash
 set TABBY_PLUGINS=%CD%
 tabby --debug
 ```
-
-也可以执行构建后，将包含 `package.json`、`dist/index.js` 和 `README.md` 的整个插件目录放入 Tabby 本地插件目录。
 
 ## 配置
 
